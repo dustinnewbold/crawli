@@ -19,7 +19,7 @@
     "commander": "^9.2.0",
     "cosmiconfig": "^7.0.1",
     "lodash.merge": "^4.6.2",
-    "puppeteer": "^14.1.1",
+    "puppeteer-core": "^14.1.1",
     "rc-config-loader": "^4.1.0"
   },
   "devDependencies": {
