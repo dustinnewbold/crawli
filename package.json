@@ -4,22 +4,20 @@
   "description": "",
   "main": "dist/cli.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "crawli": "ts-node ./src/cli.ts",
-    "build": "tsc",
-    "postinstall": "npm link"
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bin": {
-    "crawli": "./src/cli.js"
+    "crawli": "./dist/cli.js"
   },
   "dependencies": {
     "commander": "^9.2.0",
     "cosmiconfig": "^7.0.1",
     "lodash.merge": "^4.6.2",
-    "puppeteer-core": "^14.1.1",
+    "puppeteer": "^14.1.1",
     "rc-config-loader": "^4.1.0"
   },
   "devDependencies": {

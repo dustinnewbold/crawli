@@ -16,14 +16,12 @@ program
 	.option('-v, --verbose', 'Verbose logging')
 	.option('-s, --screenshot', 'Takes a screenshot of the page during crawl')
     .action((url, options) => {
-        console.log(options);
-        // const config = getConfig({url}, options);
-        // if ( ! config.startURL ) {
-        //     console.error('Please provide a valid URL');
-        //     process.exit(1);
-        // }
-
-        // crawli(config);
+        const config = getConfig({url}, options);
+        if ( ! config.startURL ) {
+            console.error('Please provide a valid URL');
+            process.exit(1);
+        }
+        crawli(config);
     });
 
 program.parse();

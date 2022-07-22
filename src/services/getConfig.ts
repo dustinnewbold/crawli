@@ -9,6 +9,7 @@ const defaultOptions: CrawliOptions = {
 	startURL: '',
 	follow: true,
 	useJavaScript: true,
+	verboseLevel: 1,
 };
 
 export const getConfig = (cliArguments: CLIArguments, cliOptions: CLIOptions): CrawliOptions => {
