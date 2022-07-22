@@ -2,3 +2,4 @@
 node_modules
 .crawlirc*
 !.crawlirc.example.json
+results.json
