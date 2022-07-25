@@ -6,9 +6,9 @@ import { fetch } from 'cross-fetch';
 
 export const puppeteer: BrowserAdapter = async (config: CrawliOptions) => {
 	const browser = await Puppeteer.launch();
-	
+
 	const results: Page[] = [];
-	
+
 	// Set throttling property
 	// const client = await page.target().createCDPSession();
 	// await client.send('Network.emulateNetworkConditions', {
@@ -17,7 +17,7 @@ export const puppeteer: BrowserAdapter = async (config: CrawliOptions) => {
 	//     'uploadThroughput': 50 * 1024 / 8,
 	//     'latency': 300
 	// });
-		
+
 	const crawl = async (url: string): Promise<Page | null> => {
 		const page = await browser.newPage();
 		await page.setUserAgent('crawlibot 0.9');
@@ -28,9 +28,9 @@ export const puppeteer: BrowserAdapter = async (config: CrawliOptions) => {
 		if ( urlAlreadyCrawled(url) ) return null;
 		if ( ! url.startsWith('http') ) return null;
 
-		console.log('Crawling:', url);
-
+		
 		if ( urlInScope(url) ) {
+			console.log(`Crawling  [FULL]  ${url}`);
 			pageResult.crawlType = 'full';
 			const response = await page.goto(url, {
 				waitUntil: 'networkidle2',
@@ -48,6 +48,7 @@ export const puppeteer: BrowserAdapter = async (config: CrawliOptions) => {
 			pageResult.performance = performanceEntries;
 			pageResult.statusCode = response.status();
 		} else {
+			console.log(`Crawling  [HEAD]  ${url}`);
 			const response = await fetch(url, { method: 'GET' });
 			pageResult.crawlType = 'head';
 			pageResult.statusCode = response.status;

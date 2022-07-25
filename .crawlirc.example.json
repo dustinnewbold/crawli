@@ -1,4 +1,9 @@
 {
     "startURL": "https://example.com",
-    "follow": false
+    "follow": true,
+    "followMatch": null,
+    "viewport": {
+        "width": 1280,
+        "height": 800
+    }
 }
